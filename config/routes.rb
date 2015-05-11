@@ -5,12 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'books#index'
 
-<<<<<<< HEAD
-=======
   get 'books/:id' => "books#show"
 
-
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

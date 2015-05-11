@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 <%= render 'shared/header' %>
-=======
 <!--  PAGE HEADER  -->
 <div id="page-header">
   <div class="container">
@@ -14,7 +12,6 @@
     </ul>
   </div>
 </div>
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
 
 <!--  LANDING IMAGE  -->
 <div id="landing-img" class="container"></div>
@@ -24,7 +21,6 @@
 
   <!--  SIDE BAR  -->
   <div class="sidebar">
-<<<<<<< HEAD
     <!-- Categories -->
     <div class="box-title box-content">
       Categories
@@ -34,7 +30,7 @@
       <ul>
         <% if Category.count > 0 %>
             <% Category.all.each do |category| %>
-                <li> <a href="#"><%= category.has_attribute?(:name) ? category.name : 'No Name Attribute' %></a> </li>
+                <li> <a href="#"><%= category.has_attribute?(:category_name) ? category.category_name : 'No Name Attribute' %></a> </li>
             <% end %>
         <% else %>
             <li><a href="#">Magazines</a> </li>
@@ -49,7 +45,7 @@
       </ul>
     </div>
 
-    <!-- Categories -->
+    <!-- Authors -->
     <div class="box-title box-content">
       Authors
     </div>
@@ -59,7 +55,7 @@
         <% if Author.count > 0 %>
             <% Author.all.each do |author| %>
                 <li> <a href="#"><%= author.has_attribute?(:name) ? author.name : 'No Name Attribute' %></a> </li>
-            <% end %>
+        <% end %>
         <% else %>
             <li><a href="#">John Updike</a> </li>
             <li><a href="#">Jonathan Safran Foer</a> </li>
@@ -71,14 +67,30 @@
             <li><a href="#">Jostein Gaarder</a> </li>
         <% end %>
       </ul>
-=======
+    </div>
     <!-- Best sellers -->
     <div class="box-title box-content">
       Best Sellers
     </div>
 
     <div class="sidebar-list" id="lp-best-sellers">
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
+      <% Book.all.each do |book| %>
+        <% if book.id < 5 %>
+          <div class="sidebar-best-sellers">
+            <div class="sidebar-img-box">
+              <%= image_tag("#{book.has_attribute?(:image) ? book.image : ''}", alt: 'Insert URL for Book') %>
+            </div>
+            <div class="best-sellers-info">
+              <p class="sidebar-product-price">
+                <%= book.has_attribute?(:price) ? book.price : "No price attribute"  %>
+              </p>
+              <p class="sidebar-product-name">
+                <%= book.has_attribute?(:title) ? book.title : "No title attribute" %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -95,12 +107,11 @@
                 <li>
                   <p class="product-img-box">
                     <span style="display: inline-block; height: 100%; vertical-align: middle"></span>
-<<<<<<< HEAD
-                    <%= image_tag("#{book.has_attribute?(:url) ? book.url : ''}", alt: 'Insert URL for Book') %>
+                    <%= image_tag("#{book.has_attribute?(:image) ? book.image : ''}", alt: 'Insert URL for Book') %>
                   </p>
 
                   <p class="product-price"><%= book.has_attribute?(:price) ? book.price : 'No Price Attribute' %></p>
-                  <a href="#"><%= book.has_attribute?(:name) ? book.name : 'No Name Attribute' %></a>
+                  <a href="#"><%= book.has_attribute?(:title) ? book.title : 'No Name Attribute' %></a>
                 </li>
             <% end %>
         <% else %>
@@ -163,15 +174,11 @@
               <p class="product-price">$35.00</p>
               <a href="#">The Rosie Project A Nove</a>
             </li>
-=======
-                    <%= image_tag("#{book.has_attribute?(:image) ? book.image: ''}", alt: 'Insert URL for Book') %>
-                  </p>
-
-                  <p class="product-price"><%= book.has_attribute?(:price) ? ('$' + book.price.to_s) : 'No Price Attribute' %></p>
-                  <%= link_to (book.has_attribute?(:name) ? book.name : 'No Name Attribute'), "books/#{book.id}" %>
-                </li>
-            <% end %>
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
+            <li>
+                <%= image_tag("#{book.has_attribute?(:image) ? book.image: ''}", alt: 'Insert URL for Book') %>
+                <p class="product-price"><%= book.has_attribute?(:price) ? ('$' + book.price.to_s) : 'No Price Attribute' %></p>
+                <%= link_to (book.has_attribute?(:name) ? book.name : 'No Name Attribute'), "books/#{book.id}" %>
+            </li>
         <% end %>
       </ul>
     </div>
@@ -183,89 +190,28 @@
 <!--  GOOGLE MAPS  -->
 <div id="google_canvas"></div>
 
-<<<<<<< HEAD
-<%= render 'shared/footer' %>
-=======
-<div id="footer">
-  <div class="container">
-    <div class="ft-col">
-      <div class="ft-title">
-        INFORMATION
-      </div>
-
-      <ul>
-        <li><a href="#">Home</a> </li>
-        <li><a href="#">Search</a> </li>
-        <li><a href="#">Blog</a> </li>
-        <li><a href="#">About us</a> </li>
-        <li><a href="#">Contact us</a> </li>
-      </ul>
-    </div>
-
-    <div class="ft-col">
-      <div class="ft-title">
-        COLLECTIONS
-      </div>
-
-      <ul>
-        <li><a href="#">Antiques</a> </li>
-        <li><a href="#">Blanks</a> </li>
-        <li><a href="#">Books</a> </li>
-        <li><a href="#">Calendars</a> </li>
-        <li><a href="#">Cards</a> </li>
-        <li><a href="#">CD/DVD</a> </li>
-        <li><a href="#">Comics</a> </li>
-      </ul>
-    </div>
-
-    <div class="ft-col">
-      <div class="ft-title">
-        MY ACCOUNT
-      </div>
-
-      <ul>
-        <li><a href="#">My account</a> </li>
-        <li><a href="#">My addresses</a> </li>
-        <li><a href="#">My card</a> </li>
-      </ul>
-    </div>
-  </div>
-</div>
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
-
 <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
 <script>
   (function() {
-
       if(!!navigator.geolocation) {
-
           var map;
-
           var mapOptions = {
               zoom: 15,
-<<<<<<< HEAD
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-=======
               mapTypeId: google.maps.MapTypeId.ROADMAP,
               scrollwheel: false
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
           };
-
           map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
-
           var geolocate = new google.maps.LatLng(21.009582, 105.809916);
-
           var infowindow = new google.maps.InfoWindow({
               map: map,
               position: geolocate,
               content: '<h5>Techmaster</h5>'
           });
-
           map.setCenter(geolocate);
       } else {
           document.getElementById('google_canvas').innerHTML = 'No Geolocation Support.';
       }
-
   })();
 </script>
+<%= render 'shared/footer' %>

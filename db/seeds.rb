@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -26,19 +25,19 @@
 end
 
 6.times do |n|
-  category_name = Faker::Lorem.characters(12)
+  category_name = Faker::Lorem.word
   category_img = Faker::Avatar.image
   Category.create!(
-      name: category_name,
+      category_name: category_name,
       image: category_img
   )
 end
 
 10.times do
-  name = Faker::Name.name
+  name = Faker::Name.title
   image = Faker::Avatar.image
   publisher = Faker::Address.country
-  year =
+  year = Faker::Number.number(4)
   isbn = Faker::Number.number(4)
   price = (rand(1.0..100.0) * 100).round / 100.0
   about = Faker::Lorem.paragraph
@@ -47,7 +46,7 @@ end
   next_author_id = author_id < 8 ? author_id + 1 : author_id - 1
 
   book = Author.find_by(id: author_id).books.create!(
-      name: name,
+      title: name,
       publisher: publisher,
       year: year,
       isbn: isbn,
@@ -59,4 +58,3 @@ end
   book.authors << Author.where(id: next_author_id).first
   book.save
 end
->>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
