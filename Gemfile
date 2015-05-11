@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+<<<<<<< HEAD
 gem 'rspec-rails'
+=======
+
+>>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
@@ -40,6 +44,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+<<<<<<< HEAD
   gem 'spring', '~>1.3.5'
 end
 
+=======
+  gem 'spring'
+end
+
+gem 'faker', '~> 1.4.3'
+
+>>>>>>> 160281050086cf9043d6e2c95551516cbca85a6a
