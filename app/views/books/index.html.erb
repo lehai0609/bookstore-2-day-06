@@ -78,14 +78,14 @@
         <% if book.id < 5 %>
           <div class="sidebar-best-sellers">
             <div class="sidebar-img-box">
-              <%= image_tag("#{book.has_attribute?(:image) ? book.image : ''}", alt: 'Insert URL for Book') %>
+              <%= image_tag (book.image) %>
             </div>
             <div class="best-sellers-info">
               <p class="sidebar-product-price">
-                <%= book.has_attribute?(:price) ? book.price : "No price attribute"  %>
+                <%= book.price %>
               </p>
               <p class="sidebar-product-name">
-                <%= book.has_attribute?(:title) ? book.title : "No title attribute" %>
+                <%= book.title %>
               </p>
             </div>
           </div>

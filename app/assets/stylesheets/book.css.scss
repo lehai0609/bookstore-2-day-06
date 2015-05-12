@@ -1,16 +1,77 @@
 #bs-same-author-books{
-  background: asset_url('related_books.png');
-  height: 680px;
-}
+  .sidebar-best-sellers {
+    display: flex;
+    flex-flow: row wrap;
+    .sidebar-img-box {
+        margin: 0;
+        width: 50%;
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    :last-child{
+        padding-bottom: 10%;
+    }
+    .best-sellers-info {
+        padding-top: 10%;
+        width: 50%;
+        text-align: center;
+        .sidebar-product-price{
+            color: #009587;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+  }
+}  
 
 #book-info{
-  background: asset_url('book_detail_1.png');
+  display: flex;
+  flex-flow: row nowrap;
+  .book-image{
+    text-align: center;
+    width: 40%;
+    height: 50%;
+  }
+  .book-info{
+    width: 60%;
+    padding-top: 5%;
+    h3{
+      font-size: 30px;
+      color: grey;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    h4{
+      font-size: 25px;
+      color: red;
+        font-weight: 200;    
+    }
+      p{
+          font-size: 18px;
+          color: grey;
+          font-weight: 200;
+          text-align: justify;
+      }
+  }
   width: 100%;
-  height: 850px;
+  height: 50%;
 }
 
 #book-other-detail{
-  background: asset_url('book_detail_2.png');
+  table, td, tr{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    tr td:first-child{
+      width: 30%;
+      font-weight: bold;
+    };
+    tr td{color: grey;}
+  }
   width: 100%;
   height: 335px;
 }

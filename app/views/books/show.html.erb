@@ -47,12 +47,29 @@
     <div class="sidebar-list" id="lp-best-sellers">
     </div>
 
-    <!-- Best sellers -->
+    <!-- Same Author -->
     <div class="box-title box-content">
       Books of Author Name
     </div>
 
     <div class="sidebar-list" id="bs-same-author-books">
+      <% @book.authors.each do |author| %>
+        <% Author.find_by(id: author.id).books.each do |sameBook| %>
+          <div class="sidebar-best-sellers">
+            <div class="sidebar-img-box">
+              <%= image_tag (sameBook.image) %>
+            </div>
+            <div class="best-sellers-info">
+              <p class="sidebar-product-price">
+                <%= sameBook.price %>
+              </p>
+              <p class="sidebar-product-name">
+                <%= sameBook.title %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -64,7 +81,16 @@
 
     <div class="products-list">
       <!--BOOK INFO-->
-      <div id="book-info"></div>
+      <div id="book-info">
+          <div class="book-image">
+            <%= image_tag(@book.image) %>
+          </div>
+          <div class="book-info">
+            <h3><%= @book.title %></h3>
+            <h4>$<%= @book.price %></h4>
+            <p><%= @book.about %></p>  
+          </div>
+      </div>
       <!--END BOOK INFO-->
     </div>
 
@@ -72,7 +98,26 @@
     <div class="box-title box-content">
       Additional Information
     </div>
-    <div id="book-other-detail"></div>
+    <div id="book-other-detail">
+      <table style="width:100%">
+        <tr>
+          <td>Publisher</td>
+          <td><%= @book.publisher %></td>
+        <tr>
+        <tr>
+          <td>Year</td>
+          <td><%= @book.year %></td>
+        <tr>
+        <tr>
+          <td>ISBN</td>
+          <td><%= @book.isbn %></td>
+        <tr>
+        <tr>
+          <td>Revised at</td>
+          <td><%= @book.updated_at %></td>
+        <tr>
+      </table>
+    </div>
     <!--END BOOK Other detail-->
 
 
@@ -80,7 +125,9 @@
     <div class="box-title box-content">
       Related Books
     </div>
-    <div id="bs-same-categories-books"></div>
+    <div id="bs-same-categories-books">
+      
+    </div>
     <!--END BOOK Other detail-->
 
   </div>
